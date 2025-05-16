@@ -20,4 +20,14 @@ def student_dict_operations(students_dict, operation, *args):
     - 根据操作返回不同结果
     """
     # 请在下方编写代码
-    pass 
+    if operation == "add" or operation == "update":
+        name, score = args
+        students_dict[name] = score
+        return students_dict
+    elif operation == "remove":
+        name = str(args[0]) # args 是一个元组，str(args) 会将整个元组转换为字符串，例如 ("李四",) 会变成 "(李四,)"
+        students_dict.pop(name)
+        return students_dict
+    else:
+        name = args[0]
+        return students_dict.get(name)
